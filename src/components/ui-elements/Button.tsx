@@ -4,6 +4,6 @@ interface ButtonProps {
 
 export const Button: React.FC<ButtonProps> = ({onClick}) => {
     return (
-        <input onClick={onClick} type="button"/>
+        <input onClick={onClick} type="button" />
     )
 }

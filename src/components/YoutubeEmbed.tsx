@@ -9,8 +9,7 @@ interface YoutubeEmbedProps {
 
 let playerRef: any = null
 
-export const YoutubeEmbed: React.FC<YoutubeEmbedProps> = ({videoId, start, end}) => {
-    console.log('embedId')
+export const YoutubeEmbed: React.FC<YoutubeEmbedProps> = ({videoId, start, end}) => {    
     const opts: Options = {
         height: '853',
         width: '480',
@@ -19,13 +18,14 @@ export const YoutubeEmbed: React.FC<YoutubeEmbedProps> = ({videoId, start, end})
           start,
           end,
         },
-    };
+    }
 
     const [isPlaying, setIsPlaying] = useState(false)
 
     useEffect(() => {
         if (playerRef && start) {
             playerRef.target.seekTo(start)
+            playerRef.target.playVideo()
         }
     }, [isPlaying])
     
@@ -38,7 +38,7 @@ export const YoutubeEmbed: React.FC<YoutubeEmbedProps> = ({videoId, start, end})
     return (
         <div className="video-responsive">
             <YouTube videoId={videoId} opts={opts} onReady={onReady} />
-            <input type="button" onClick={onClick} title="play"/>
+            <input type="button" onClick={onClick} title="play" />
         </div>
     )
 }
