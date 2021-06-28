@@ -29,18 +29,15 @@ export const YoutubeEmbed: React.FC<YoutubeEmbedProps> = ({videoId, start, end})
         }
     }, [isPlaying])
     
-    const onReady = (event: any) => {
-        console.log('playVideo', event.target.playVideo)
-        playerRef = event
-    }
-
+    const onReady = (event: any) => playerRef = event
+    
     const onClick = () => {
         setIsPlaying(!isPlaying)
     }
 
     return (
         <div className="video-responsive">
-            <YouTube videoId={videoId} opts={opts} onReady={onReady} />;
+            <YouTube videoId={videoId} opts={opts} onReady={onReady} />
             <input type="button" onClick={onClick} title="play"/>
         </div>
     )
