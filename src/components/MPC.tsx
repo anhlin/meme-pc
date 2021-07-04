@@ -2,14 +2,17 @@ import React, {useState} from 'react'
 import {Screen} from './Screen'
 import {Videos} from './Videos'
 import {Grid} from  "@material-ui/core"
-
-interface PlayerSettings {
-    [key: string]: {start: number, end: number}
-}
+import {PlayerSettings} from '../types/player-types'
 
 export const MPC: React.FC = () => {
 
-    const [playerSettings, setPlayerSettings] = useState<PlayerSettings>({})
+    const initialSettings: PlayerSettings = {
+        "rokGy0huYEA": {start: 1, end: 5},
+        "1NMZ0MpaEuY": {start: 1, end: 5},
+        "_umbBA6opV8": {start: 1, end: 5},
+    }
+
+    const [playerSettings, setPlayerSettings] = useState<PlayerSettings>(initialSettings)
 
     return (
         <Grid
@@ -18,8 +21,8 @@ export const MPC: React.FC = () => {
             justify="center"
             alignItems="center"
         >
-            <Screen />
-            <Videos />
+            <Screen playerSettings={playerSettings} setPlayerSettings={setPlayerSettings} />
+            <Videos playerSettings={playerSettings} />
         </Grid>
     )
 }

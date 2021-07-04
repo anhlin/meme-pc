@@ -8,6 +8,9 @@ interface YoutubeEmbedProps {
 }
 
 let playerRef: any = null
+let playerRef2: any = null
+let playerRef3: any = null
+
 
 export const YoutubeEmbed: React.FC<YoutubeEmbedProps> = ({videoId, start, end}) => {    
     const opts: Options = {
@@ -23,13 +26,33 @@ export const YoutubeEmbed: React.FC<YoutubeEmbedProps> = ({videoId, start, end})
     const [isPlaying, setIsPlaying] = useState(false)
 
     useEffect(() => {
-        if (playerRef && start) {
-            playerRef.target.seekTo(start)
-            playerRef.target.playVideo()
+        if (videoId === "rokGy0huYEA") {
+            if (playerRef && start) {
+                playerRef.target.seekTo(start)
+                playerRef.target.playVideo()
+            }        
+        } else if (videoId === "1NMZ0MpaEuY") {
+            if (playerRef && start) {
+                playerRef2.target.seekTo(start)
+                playerRef2.target.playVideo()
+            }    
+        } else if (videoId === "_umbBA6opV8") {
+            if (playerRef && start) {
+                playerRef3.target.seekTo(start)
+                playerRef3.target.playVideo()
+            }        
         }
     }, [isPlaying])
     
-    const onReady = (event: any) => playerRef = event
+    const onReady = (event: any) => {
+       if (videoId === "rokGy0huYEA") {
+           playerRef = event
+       } else if (videoId === "1NMZ0MpaEuY") {
+           playerRef2 = event
+       } else if (videoId === "_umbBA6opV8") {
+           playerRef3 = event
+       }
+    }
     
     const onClick = () => {
         setIsPlaying(!isPlaying)
@@ -42,4 +65,4 @@ export const YoutubeEmbed: React.FC<YoutubeEmbedProps> = ({videoId, start, end})
         </div>
     )
 }
-  
+    
