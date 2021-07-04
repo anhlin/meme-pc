@@ -37,7 +37,7 @@ export const YoutubeEmbed: React.FC<YoutubeEmbedProps> = ({videoId, start, end})
 
     return (
         <div className="video-responsive">
-            <YouTube videoId={videoId} opts={opts} onReady={onReady} />
+            <YouTube className="player" videoId={videoId} opts={opts} onReady={onReady} />
             <input type="button" onClick={onClick} title="play" />
         </div>
     )

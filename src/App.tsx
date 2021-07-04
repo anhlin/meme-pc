@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import {YoutubeEmbed} from './components/YoutubeEmbed';
-import {TimeInput} from './components/TimeInput';
-import {Button} from './components/ui-elements/Button';
+import {MPC} from './components/MPC'
 
 const App: React.FC = () => {
 
@@ -21,11 +19,8 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <h1>Meme PC</h1>
-        <YoutubeEmbed start={urlTimeOne} end={urlTimeTwo} videoId={`rokGy0huYEA`} />
-        <TimeInput setTime={setTimeOne} time={timeOne} />
-        <TimeInput setTime={setTimeTwo} time={timeTwo} />
-        <Button onClick={onSubmit} />
+        <h1>Meme PC</h1>
+        <MPC />
     </div>
   );
 }

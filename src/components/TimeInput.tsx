@@ -1,6 +1,6 @@
 interface TimeInputProps {
-    setTime: (time: string | undefined) => void
-    time: string | undefined
+    setTime: (time: string) => void
+    time: string
 }
 
 export const TimeInput: React.FC<TimeInputProps> = ({time, setTime}) => {
